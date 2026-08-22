@@ -1,0 +1,35 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.service-line {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 64px;
+    margin-top: -20px;
+}
+
+.divider {
+    border: none;
+    border-top: 2px solid #FFFFFF;
+    width: 100%;
+}
+
+.service-buttons {
+    padding: 0 64px;
+}
+
+.service-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex: 1;
+    flex-direction: row;
+    
+}

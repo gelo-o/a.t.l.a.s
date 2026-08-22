@@ -1,0 +1,130 @@
+.login-page {
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login-intro {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.login-logo {
+    margin: 0;
+    letter-spacing: 12px;
+    color: #FFFFFF;
+    -webkit-text-stroke: 2px #1672B3;
+    font-size: 64px;
+    transition: transform 0.5s ease;
+}
+
+.login-logo.move-up {
+    transform: translateY(-230px)
+}
+
+.logo-meaning {
+    margin: 0;
+    color: #FFFFFF;
+    font-size: 32px;;
+    text-align: center;
+    opacity: 1;
+    transition: opacity 0.2s ease-out;
+}
+
+.logo-meaning.remove {
+    opacity: 0;
+}
+
+a:link, a:visited, a:hover, a:active {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+/* Login Form */
+
+.login-form-container {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+        opacity 0.5s ease-in,
+        visibility 0.5s ease-in;
+}
+
+.login-form-container.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.login-form {
+    background-color: #1E1E1E;
+    border-radius: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    padding: 40px;
+    margin-top: 80px;
+    
+    box-shadow: 5px 5px 8.7px 6px rgba(0, 0, 0, 0.50);
+}
+
+
+.login-title-form {
+    letter-spacing: 15%;
+    align-self: flex-start;
+    margin-bottom: 20px;
+}
+
+.action-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 200px;
+    margin: 10px 0;
+}
+
+.login-input {
+    border-radius: 8px;
+    background-color: #323232;
+    color: #FFFFFF;
+    border: 2px solid #323232;
+
+    width: 500px;
+    height: 40px;
+    transition: border 0.2s ease;
+    padding: 0 10px;
+}
+
+.login-input:hover {
+    border: 2px solid white;
+}
+
+.login-label {
+    font-size: 16px;
+    align-self: flex-start;
+    margin: 20px 0 5px 0;
+    transform: translateX(5px);
+}
+
+.login-btn {
+    border-radius: 12px;
+    height: 50px;
+    width: 400px;
+    font-size: 20px;
+    margin: 50px 0 80px 0;
+    background-color: #FFFFFF;
+    transition: background-color 0.2s ease;
+}
+
+.login-btn:hover {
+    background-color: #A1A8A2;
+}
+

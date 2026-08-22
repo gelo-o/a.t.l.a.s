@@ -1,0 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Press+Start+2P&family=Shrikhand&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  min-height: 100%;
+  background-color: #0E1111;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Audiowide", sans-serif;
+  font-style: normal;
+  color: #FFFFFF;
+}
+
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+}
