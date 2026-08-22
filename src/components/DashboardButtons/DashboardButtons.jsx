@@ -1,8 +1,8 @@
 import './DashboardButtons.css'
 
-function DashboardButtons({ children, icon }) {
+function DashboardButtons({ children, icon, onClick }) {
     return (
-        <button className='button-container'>
+        <button className='button-container' onClick={onClick}>
             <span className='button-icon'>
                 {icon}
             </span>
