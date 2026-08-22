@@ -1,9 +1,12 @@
 import './Dashboard_End.css';
-import { Printer } from 'lucide-react';
+import { Printer, Clapperboard } from 'lucide-react';
 import DashboardButtons from '../../components/DashboardButtons/DashboardButtons'
 import NavigationBar from '../../components/NavigationBar/NavigationBar';
+import { useNavigate } from 'react-router-dom';
 
 function Dashboard_End() {
+    const navigate = useNavigate();
+
     return (
         <div className="dashboard-container">
             <NavigationBar />
@@ -15,16 +18,19 @@ function Dashboard_End() {
             </div>
 
             <div className="service-buttons">
-                <DashboardButtons icon={<Printer size={100} color='#1DD3AF'/>}>
+                <DashboardButtons 
+                    icon={<Printer size={120} color='#1DD3AF' strokeWidth={1}/>} 
+                    onClick={() => navigate("/printing")}
+                >
                     Printing Service
                 </DashboardButtons>
 
-                <DashboardButtons icon={<Printer size={100} color='#1DD3AF'/>}>
-                    Printing Service
+                <DashboardButtons icon={<Clapperboard size={120} color='#F14BF1' strokeWidth={1}/>}>
+                    Streaming Service
                 </DashboardButtons>
 
-                <DashboardButtons icon={<Printer size={100} color='#1DD3AF'/>}>
-                    Printing Service
+                <DashboardButtons>
+                    More to Come Ü
                 </DashboardButtons>
 
     
