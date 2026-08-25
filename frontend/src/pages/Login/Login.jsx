@@ -9,11 +9,12 @@ function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
+    const API_URL = import.meta.env.VITE_BACKEND_IP;
 
     async function loginProcess(event) {
         event.preventDefault();
 
-        const response = await fetch('http://localhost:3000/api/login', {
+        const response = await fetch(`${API_URL}/api/login`, {
             method: 'POST',
             headers: {
                 'Content-Type' : 'application/json'
@@ -24,7 +25,13 @@ function Login() {
             })
         });
 
-        await response.json();
+        if(response.status === 200) {
+            navigate('/dashboard_end');
+        }
+        else {
+            alert(`Invalid Username or Password`);
+        }
+
     };
 
     return (
