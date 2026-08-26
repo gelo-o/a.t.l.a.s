@@ -6,10 +6,11 @@ import { useNavigate } from 'react-router-dom';
 
 function Dashboard_End() {
     const navigate = useNavigate();
-
+    const username = localStorage.getItem('username');
+    const role = localStorage.getItem('role');
     return (
         <div className="dashboard-container">
-            <NavigationBar />
+            <NavigationBar role={role}>welcome {username}</NavigationBar>
             
             <div className="service-line">
                 <hr className='divider'/>  

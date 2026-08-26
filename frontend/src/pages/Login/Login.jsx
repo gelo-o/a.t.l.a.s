@@ -25,7 +25,11 @@ function Login() {
             })
         });
 
+        const data = await response.json();
+
         if(response.status === 200) {
+            localStorage.setItem('username', data['data']['username']);
+            localStorage.setItem('role', data['data']['role']);
             navigate('/dashboard_end');
         }
         else {
