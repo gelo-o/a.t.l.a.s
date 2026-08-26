@@ -8,7 +8,7 @@ const PORT = process.env.SERVER_PORT;
 
 
 app.use(cors({
-    origin: `http://localhost:${process.env.FRONTEND_PORT}`
+    origin: `${process.env.FRONTEND_IP}`
 }));
 
 app.use(express.json());
@@ -30,7 +30,7 @@ app.post('/api/login', async (req, res) => {
     const {username, password} = req.body;
 
     const result = await pool.query(
-        `SELECT username, password
+        `SELECT username, password, is_admin
         FROM users
         WHERE username = $1
         AND password = $2`,
@@ -38,9 +38,25 @@ app.post('/api/login', async (req, res) => {
     );
 
     if(result.rows.length > 0) {
-        res.status(200).json({
-            message: 'Login Successful'
-        });
+        if(result.rows[0].is_admin === false) {
+            res.status(200).json({
+                message: 'Login Successful!',
+                data: {
+                    username: result.rows[0].username,
+                    role: "End User"
+                }
+            });
+        }
+        else{
+            res.status(200).json({
+                message: 'Login Successful!',
+                data: {
+                    username: result.rows[0].username,
+                    role: 'Admin'
+                }
+            });
+        }
+
     }
     else{
         res.status(401).json({
