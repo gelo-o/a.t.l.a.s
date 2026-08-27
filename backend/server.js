@@ -6,7 +6,6 @@ const app = express();
 const cors = require('cors');
 const PORT = process.env.SERVER_PORT;
 
-
 app.use(cors({
     origin: `${process.env.FRONTEND_IP}`
 }));
@@ -14,13 +13,13 @@ app.use(cors({
 app.use(express.json());
 
 app.post('/api/users', async (req, res) => {
-    const {username, password} = req.body;
+    const {username, password, first_name, last_name} = req.body;
 
     const result = await pool.query(
-        `INSERT INTO users (username, password)
-        VALUES ($1, $2)
+        `INSERT INTO users (username, password, first_name, last_name)
+        VALUES ($1, $2, $3, $4)
         RETURNING id, username`,
-        [username, password]
+        [username, password, first_name, last_name]
     );
 
     res.status(201).json(result.rows[0]);
@@ -30,7 +29,7 @@ app.post('/api/login', async (req, res) => {
     const {username, password} = req.body;
 
     const result = await pool.query(
-        `SELECT username, password, is_admin
+        `SELECT username, password, is_admin, first_name, last_name
         FROM users
         WHERE username = $1
         AND password = $2`,
@@ -43,7 +42,9 @@ app.post('/api/login', async (req, res) => {
                 message: 'Login Successful!',
                 data: {
                     username: result.rows[0].username,
-                    role: "End User"
+                    role: "End User",
+                    first_name: result.rows[0].first_name,
+                    last_name:result.rows[0].last_name
                 }
             });
         }
@@ -52,7 +53,9 @@ app.post('/api/login', async (req, res) => {
                 message: 'Login Successful!',
                 data: {
                     username: result.rows[0].username,
-                    role: 'Admin'
+                    role: "Admin",
+                    first_name: result.rows[0].first_name,
+                    last_name:result.rows[0].last_name
                 }
             });
         }
