@@ -6,10 +6,14 @@ import { useState } from 'react';
 function NavigationBar({ children, role }) {
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
+    const firstName = localStorage.getItem('firstname');
+    const lastName = localStorage.getItem('lastname');
 
     function logoutProcess() {
         localStorage.removeItem('username');
         localStorage.removeItem('role');
+        localStorage.removeItem('firstname');
+        localStorage.removeItem('lastname');
         navigate('/');
     }
     return(
@@ -20,7 +24,7 @@ function NavigationBar({ children, role }) {
 
                 <div className="profile-dropdown">
                     <button className="profile" onClick = {() => setIsOpen(!isOpen)}>
-                        <span className='profile-picture'>CS</span>
+                        <span className='profile-picture'>{firstName[0].toUpperCase() + lastName[0].toUpperCase()}</span>
                         <h3 className='user-type'>{role}</h3>
                         <ChevronDown className={`dropdown ${isOpen ? "rotated" : ""}`}/>
                     </button>

@@ -30,6 +30,8 @@ function Login() {
         if(response.status === 200) {
             localStorage.setItem('username', data['data']['username']);
             localStorage.setItem('role', data['data']['role']);
+            localStorage.setItem('firstname', data['data']['first_name']);
+            localStorage.setItem('lastname', data['data']['last_name']);
             navigate('/dashboard_end');
         }
         else {
