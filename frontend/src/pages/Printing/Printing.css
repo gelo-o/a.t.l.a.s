@@ -1,21 +1,24 @@
 .printing-container {
     width: 100%;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 35px;
 }
 
 main {
     width: 95%;
+    border-radius: 32px;
     background-color: #1E1E1E;
     
-    padding: 20px;
+    padding: 30px;
 
     display: flex;
-    align-items: center;
+    align-items: stretch;
     flex-direction: row;
-    border-radius: 32px;
     gap: 40px;
+    flex: 1;
 }
 
 .drop-container {
@@ -26,7 +29,7 @@ main {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    flex: 2;
+    flex: 3;
 
     padding: 20px;
 }
@@ -55,9 +58,14 @@ main {
     font-size: 12px;
 }
 
-.right-side {
-    border: 2px solid;
+.print-container {
+    border: 2px solid rgb(244, 247, 247);
     border-radius: 32px;
-
     flex: 1;
+    padding: 5px 20px;
+}
+
+.print-title {
+    font-size: 24px;
+    font-weight: lighter;
 }
