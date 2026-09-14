@@ -29,12 +29,14 @@ function Printing() {
                             <option value="office-a">Office Printer A</option>
                             <option value="home-office">Home Office Jet</option>
                         </select>
+                        
                         <label className='print-label' htmlFor="paper-size">Paper Size</label>
                         <select name="paper-size" id="paper-size" className='printer-option'>
                             <option value="a4">A4</option>
                             <option value="short">short</option>
                             <option value="long">long</option>
                         </select>
+                        
                         <label className='print-label' htmlFor="paper-pages">Pages</label>
                         <select name="paper-pages" id="paper-pages" className='printer-option-2'>
                             <option value="all">All</option>
@@ -42,7 +44,27 @@ function Printing() {
                             <option value="even">Even Pages Only</option>
                             <option value="custom">Custom</option>
                         </select>
+                        
+                        <label className='print-label' htmlFor="paper-copies">Copies</label>
+                        <select name='paper-copies' id='paper-copies' className='printer-option-2'>
+                            <option value='1'>1</option>
+                            <option value='2'>2</option>
+                            <option value='3'>3</option>
+                            <option value='4'>4</option>
+                        </select>
 
+                        <label name='paper-layout' htmlFor='paper-layout'>Layout</label>
+                        <select name='paper-layout' id='paper-layout' className='printer-option-2'>
+                            <option value="vertical">Vertical</option>
+                            <option value="Horizontal">Horizontal</option>
+                        </select>
+
+                        <label name='paper-color' htmlFor='paper-color'>Color</label>
+                        <select name='paper-color' id='paper-color' className='printer-option-2'>
+                            <option value="color">Color</option>
+                            <option value="grayscale">Grayscale</option>
+                            <option value="monochrome">MonoChrome</option>
+                        </select>
 
 
                     </form>

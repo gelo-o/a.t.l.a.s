@@ -69,3 +69,16 @@ main {
     font-size: 24px;
     font-weight: lighter;
 }
+
+.print-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 16px;
+}
+
+.print-label {
+    font-size: 18px;
+}
+
+.printer-option {}
