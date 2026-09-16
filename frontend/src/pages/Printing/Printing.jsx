@@ -5,14 +5,25 @@ import NavigationBar from '../../components/NavigationBar/NavigationBar';
 function Printing() {
     const role = localStorage.getItem('role');
     const [copies, setCopies] = useState(1);
+    const [fileName, setFileName] = useState('No File Attached');
 
     function addCopyQuantity() {
-        setCopies(copies + 1);
+        if(copies < 99)
+            setCopies(copies + 1);
     }
 
     function lessCopyQuantity() {
         if(copies > 1)
             setCopies(copies - 1);
+    }
+
+    function handleDrop(event){
+        event.preventDefault();
+        const file = event.dataTransfer.files;
+        if(file[0]["type"] === "application/pdf")
+            setFileName(file[0]["name"]);
+        else
+            alert("This is not a PDF File");
     }
     
     return (
@@ -20,14 +31,14 @@ function Printing() {
             <NavigationBar role={role}>Printing Service</NavigationBar>
 
             <main>
-                <section className="drop-container">
+                <section className="drop-container" onDragOver={event => event.preventDefault()} onDrop={handleDrop}>
                     <span className='drop-logo'>
                         <FileDown color='black' strokeWidth={1}
                         size={100}/>
                     </span>
                     <h1 className='dropfile-title'>Drop File</h1>
                     <h2 className='files-acceptable'>PDF Files Only</h2>
-                    <input type="file" />
+                    <input type="file" accept='.pdf'/>
                 </section>
 
                 <section className='print-container'>
@@ -35,6 +46,11 @@ function Printing() {
                     <hr className='divider'/>
 
                     <form className='print-form'>
+                        <div className="form-group">
+                            <label className='file-name' htmlFor='file-name'>File Name</label>
+                            <input id="file-name" type="text" className='printer-option' value={fileName} readOnly/>
+                        </div>
+
                         <div className="row-form">
                             <div className="form-group-3">
                                 <label className='print-label' htmlFor='printer'>Printer</label>
@@ -45,10 +61,10 @@ function Printing() {
                             </div>
 
                             <div className="form-group">
-                                <label className='print-label' htmlFor="paper-copies">Copies</label>
-                                <div className="paper-copies">
+                                <label className='print-label' htmlFor='print-quantity'>Copies</label>
+                                <div className="paper-copies" >
                                     <button type='button' onClick={lessCopyQuantity}>-</button>
-                                    <span className='print-counter'>{copies}</span>
+                                    <input className='print-quantity' id='print-quantity' value={copies} readOnly/>
                                     <button type='button' onClick={addCopyQuantity}>+</button>
                                 </div>
                             </div>

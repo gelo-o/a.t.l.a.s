@@ -32,6 +32,7 @@ main {
     flex: 3;
 
     padding: 20px;
+    cursor: pointer;
 }
 
 .drop-logo {
@@ -93,12 +94,13 @@ main {
     flex-direction: row;
 }
 
-.print-counter {
+.print-quantity {
     background-color: white;
     color: black;
     flex: 1;
     text-align: center;
     height: 30px;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
